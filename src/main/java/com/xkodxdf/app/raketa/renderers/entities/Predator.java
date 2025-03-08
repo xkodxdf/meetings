@@ -1,4 +1,4 @@
 package com.xkodxdf.app.raketa.renderers.entities;
 
-public class Predator extends Entity {
+public class Predator extends Creature {
 }

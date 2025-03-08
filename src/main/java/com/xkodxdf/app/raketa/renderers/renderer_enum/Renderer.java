@@ -2,6 +2,7 @@ package com.xkodxdf.app.raketa.renderers.renderer_enum;
 
 import com.xkodxdf.app.raketa.renderers.entities.Entity;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Renderer {
@@ -18,6 +19,10 @@ public class Renderer {
 
     public void render(Entity entity) {
         System.out.println(notationProvider.get(entity));
+    }
+
+    public void render(List<Entity> entities) {
+        entities.forEach(this::render);
     }
 
     public void randomSwitchNotation() {

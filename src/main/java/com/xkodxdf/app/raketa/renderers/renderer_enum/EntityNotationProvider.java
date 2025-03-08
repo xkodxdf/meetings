@@ -11,15 +11,21 @@ public enum EntityNotationProvider {
             " @ ",
             " $ "
     ),
+    LETTER(
+            "E",
+            "H",
+            "P"
+    ),
     NUMBER(
             " 0 ",
             " 1 ",
-            " 3 "
+            " 2 "
     ),
     EMOJI(
             "\uD83D\uDFEB",
             "\uD83E\uDD8C",
-            "\uD83D\uDC3A");
+            "\uD83D\uDC3A"
+    );
 
 
     private final String herbivore;

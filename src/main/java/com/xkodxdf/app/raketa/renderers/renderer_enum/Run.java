@@ -1,34 +1,33 @@
 package com.xkodxdf.app.raketa.renderers.renderer_enum;
 
+import com.xkodxdf.app.raketa.renderers.entities.Entity;
 import com.xkodxdf.app.raketa.renderers.entities.Herbivore;
 import com.xkodxdf.app.raketa.renderers.entities.Predator;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Run {
 
     public static void main(String[] args) {
-        Herbivore herbivore = new Herbivore();
-        Predator predator = new Predator();
+        List<Entity> entities = new ArrayList<>();
+        entities.add(new Herbivore());
+        entities.add(new Predator());
+        entities.add(null);
 
-        System.out.println("emoji:");
         Renderer renderer = new Renderer(EntityNotationProvider.EMOJI);
-        renderer.render(herbivore);
-        renderer.render(predator);
 
-        System.out.println("ascii");
-        renderer.setNotationProvider(EntityNotationProvider.ASCII);
-        renderer.render(herbivore);
-        renderer.render(predator);
+        for (EntityNotationProvider entityNotationProvider : EntityNotationProvider.values()) {
+            renderer.setNotationProvider(entityNotationProvider);
+            System.out.println(entityNotationProvider.name() + ":");
+            renderer.render(entities);
+        }
 
-        System.out.println("number");
-        renderer.setNotationProvider(EntityNotationProvider.NUMBER);
-        renderer.render(herbivore);
-        renderer.render(predator);
-
-        System.out.println("random notation switch");
-        for (int i = 0; i < 5; i++) {
+        System.out.println("Random switch notation");
+        for (Entity entity : entities) {
             renderer.randomSwitchNotation();
-            renderer.render(herbivore);
-            renderer.render(predator);
+            renderer.render(entity);
         }
     }
 }
